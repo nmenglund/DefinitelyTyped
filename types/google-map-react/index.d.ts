@@ -8,10 +8,20 @@ import * as React from 'react';
 
 export type BootstrapURLKeys = ({ key: string; } | { client: string; v: string; }) & { language?: string };
 
+export type MapStyler =
+    | { hue: string; }
+    | { lightness: number; }
+    | { saturation: number; }
+    | { gamma: number; }
+    | { invert_lightness: boolean; }
+    | { visibility: 'on' | 'off' | 'simplified' }
+    | { color: string; }
+    | { weight: number; };
+
 export interface MapTypeStyle {
-  elementType: string;
-  featureType: string;
-  stylers: any[];
+  elementType?: string;
+  featureType?: string;
+  stylers: MapStyler[];
 }
 
 export interface MapOptions {
